@@ -1,4 +1,4 @@
-   var person = ['Nina Simone', 'Neyo', 'Madonna', 'Tina', 'Beyonce', 'Cher', 'Michael Jackson', 'Prince', 'Elton John', 'Tony Benet'];
+   var person = ['Nina Simone', 'Neyo', 'Madonna', 'Tina Turner', 'Beyonce', 'Cher', 'Michael Jackson', 'Prince', 'Bill Clinton', 'Obama'];
     function renderButtons(){ 
         $('#buttonsView').empty();
         for (var i = 0; i < person.length; i++){
@@ -9,6 +9,9 @@
             $('#buttonsView').append(a);
         }
     }
+
+
+    
     function displayMovieInfo(){
         var person = $(this).attr('data-name');
         //var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&r=json";
@@ -17,19 +20,23 @@
         
         //------YOUR CODE GOES IN THESE DASHES
         $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
-            console.log(response);
-            console.log(response.data);
+            console.log(response.data[1]);
+            for(e =0; e<response.data.length; e++){
             var image = $('<img>');
-            image.attr("src", response.data);
-            console.log(response.data);
-            $("#personsView").prepend(JSON.stringify(response));
+            image.attr('src', response.data[e].images.original.url);
+            var gifImage = response.data[e].images.original.url;
+
+            $("#personsView").prepend(image);
+
+        }
         }); 
         //------
     }
     renderButtons();
     $('#addPerson').on('click', function(){
-        var movie = $('#movie-input').val().trim();
-        movies.push(movie);
+        var newPerson = $('#movie-input').val().trim();
+        newPerson.push(person);
+        console.log(person);
         
         renderButtons();
         return false;
