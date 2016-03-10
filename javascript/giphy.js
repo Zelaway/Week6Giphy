@@ -17,7 +17,10 @@
         
         //------YOUR CODE GOES IN THESE DASHES
         $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
-             $("#personsView").prepend(JSON.stringify(response));
+            console.log(response);
+            var image = $('<img>');
+            image.attr("src", value);
+            $("#personsView").prepend(JSON.stringify(response));
         }); 
         //------
     }
