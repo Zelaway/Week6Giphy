@@ -1,0 +1,32 @@
+button, div,form, input{
+	margin:10px;
+}
+
+body{
+	background-image: url("background.jpg");
+	
+}
+
+h1{	
+	font-weight: bold;
+	font-size: 20px;
+	color: black;
+	padding: 2px;
+}
+
+#movie-form{
+	font-weight: bold;
+	color: black;
+}
+
+#addPerson{
+	background-color: d13b46;
+	color: whitesmoke;
+	font-weight: bold;	
+}
+
+button{
+	background-color: d13b46;
+	color: whitesmoke;
+	font-weight: bold;
+}
